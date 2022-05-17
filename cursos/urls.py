@@ -6,5 +6,5 @@ from .views import CourseAPIView, AvalaitionAPIView
 
 urlpatterns = [
     path('cursos/', CourseAPIView.as_view(), name='cursos'),
-    path('avalicoes/', AvalaitionAPIView.as_view(), name='avaliacoes'),
+    path('avaliacoes/', AvalaitionAPIView.as_view(), name='avaliacoes'),
 ]

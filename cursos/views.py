@@ -9,6 +9,7 @@ class CourseAPIView(APIView):
     API of Course
     """
     def get(self, request):
+        print(dir(request))
         course = Course.objects.all()
         serializer = CourseSerializer(course, many=True)
         return Response(serializer.data)
