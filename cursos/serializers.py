@@ -13,7 +13,7 @@ class AvaliationSerializer(serializers.ModelSerializer):
         model = Avaliation
         fields = (
             'id',
-            'course',
+            'cource',
             'name',
             'email',
             'comment',
