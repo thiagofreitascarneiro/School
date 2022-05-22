@@ -1,8 +1,14 @@
 from rest_framework import generics 
 from rest_framework.generics import get_object_or_404
 
+from rest_framework import viewsets
+
 from .models import Course, Avaliation
 from .serializers import CourseSerializer, AvaliationSerializer
+
+"""
+API V1
+"""
 
 
 class CourseAllAPIView(generics.ListCreateAPIView):
@@ -35,3 +41,16 @@ class AvaliationAPIView(generics.RetrieveUpdateDestroyAPIView):
                                             pk=self.kwargs.get('avaliacao_pk'))
         return get_object_or_404(self.get_queryset(), pk=self.kwargs.get('avaliacao_pk'))
         
+
+"""
+API V2
+"""
+
+class CourceViewSet(viewsets.ModelViewSet):
+    queryset = Course.objects.all()
+    serializer_class = CourseSerializer
+
+
+class AvaliacaoViewSet(viewsets.ModelViewSet):
+    queryset = Avaliation.objects.all()
+    serializer_class = AvaliationSerializer
