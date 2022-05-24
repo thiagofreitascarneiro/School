@@ -4,6 +4,7 @@ from rest_framework.generics import get_object_or_404
 from rest_framework import viewsets
 from rest_framework.decorators import action
 from rest_framework.response import Response
+from rest_framework import mixins
 
 from .models import Course, Avaliation
 from .serializers import CourseSerializer, AvaliationSerializer
@@ -64,6 +65,17 @@ class CourceViewSet(viewsets.ModelViewSet):
         serializer = AvaliationSerializer(cource.avaliations.all(), many=True)
         return Response(serializer.data)
 
-class AvaliationViewSet(viewsets.ModelViewSet):
+# class AvaliationViewSet(viewsets.ModelViewSet):
+#     queryset = Avaliation.objects.all()
+#     serializer_class = AvaliationSerializer
+
+class AvaliationViewSet(
+    # mixins.ListModelMixin,
+    mixins.CreateModelMixin,
+    mixins.RetrieveModelMixin,
+    mixins.UpdateModelMixin,
+    mixins.DestroyModelMixin,
+    viewsets.GenericViewSet
+    ):
     queryset = Avaliation.objects.all()
     serializer_class = AvaliationSerializer
