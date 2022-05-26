@@ -77,7 +77,7 @@ class CourceViewSet(viewsets.ModelViewSet):
 #     serializer_class = AvaliationSerializer
 
 class AvaliationViewSet(
-    # mixins.ListModelMixin,
+    mixins.ListModelMixin,
     mixins.CreateModelMixin,
     mixins.RetrieveModelMixin,
     mixins.UpdateModelMixin,
