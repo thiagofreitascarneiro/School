@@ -11,6 +11,6 @@ results = requests.delete(url=f'{url_base_cource}6/', headers=headers)
 # Testing the HTTP code
 assert results.status_code == 204
 
-
 # test if the return content length is the same 0
 assert len(results.text) == 0 
+
